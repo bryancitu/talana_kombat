@@ -15,6 +15,7 @@ class PlayersSerializer(serializers.ModelSerializer):
         fields = ['id', 'full_name', 'username', 'power']
 
     def get_power(self,obj):
-        powers = Power.objects.filter(player__full_name=obj)
+        player = Player.objects.filter(full_name=obj).first()
+        powers = Power.objects.filter(player__id=player.id)
         serializer = PowersSerializer(powers, many=True)
         return serializer.data
