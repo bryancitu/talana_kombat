@@ -9,7 +9,13 @@ class PowersInline(admin.StackedInline):
 class PlayerAdmin(admin.ModelAdmin):
     """Personalization of Player Admin"""
 
-    list_display = ['id', 'username', 'full_name', 'created_at', 'updated_at']
+    list_display = [
+        'id', 
+        'username', 
+        'full_name', 
+        'created_at', 
+        'updated_at',
+    ]
     list_filter = ['created_at', 'updated_at']
     list_editable = ['username']
     inlines = [PowersInline]

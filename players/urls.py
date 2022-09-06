@@ -22,4 +22,9 @@ urlpatterns = [
         PlayerDetailApiView.as_view(),
         name='detail_player'
     ),
+    path(
+        'api/game/',
+        GameApiView.as_view(),
+        name='game'
+    ),
 ]
